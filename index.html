@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кибербезопасность для подростков | Проект</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f4f8;
+            color: #1a2c3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0f4c5f, #2a7f6e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo i {
+            background: none;
+            color: #2a7f6e;
+            margin-right: 6px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #1e3b4a;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #0f6b5e;
+            border-bottom: 2px solid #0f6b5e;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2rem;
+        }
+
+        .hero {
+            background: linear-gradient(120deg, #0a2e3f 0%, #135b6b 100%);
+            color: white;
+            border-radius: 2rem;
+            margin: 2rem 2rem 0 2rem;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.2);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 i {
+            margin-right: 12px;
+            color: #ffd966;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 1.8rem;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.2);
+            border-radius: 40px;
+            padding: 0.4rem 1rem;
+            display: inline-block;
+            font-size: 0.85rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.8rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            transition: all 0.25s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.12);
+        }
+
+        .card-icon {
+            font-size: 2.4rem;
+            color: #1e7e6c;
+            margin-bottom: 1rem;
+        }
+
+        .grid-2, .grid-3, .grid-4 {
+            display: grid;
+            gap: 1.8rem;
+        }
+
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            border-left: 6px solid #1e7e6c;
+            padding-left: 1rem;
+        }
+
+        .stat-box {
+            background: #eef2fa;
+            border-radius: 1.5rem;
+            padding: 1rem 1.5rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #135b6b;
+        }
+
+        .tip-list {
+            list-style: none;
+        }
+        .tip-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.6rem;
+            position: relative;
+        }
+        .tip-list li i {
+            position: absolute;
+            left: 0;
+            top: 3px;
+            color: #1e7e6c;
+        }
+
+        .footer {
+            background: #0a2a36;
+            color: #cddfe7;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+            border-radius: 1.5rem 1.5rem 0 0;
+        }
+
+        button {
+            background: #1e7e6c;
+            border: none;
+            color: white;
+            padding: 0.7rem 1.8rem;
+            border-radius: 3rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        button:hover {
+            background: #0f5e50;
+        }
+
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 1.9rem; }
+            .container { padding: 1rem 1.2rem; }
+            .navbar { flex-direction: column; text-align: center; }
+            .hero { margin: 1rem; padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">
+        <i class="fas fa-shield-haltered"></i> CyberSafe Teens
+    </div>
+    <div class="nav-links">
+        <a href="#actual">Актуальность</a>
+        <a href="#threats">Угрозы</a>
+        <a href="#stats">Статистика</a>
+        <a href="#advice">Советы</a>
+        <a href="#conclusion">Выводы</a>
+    </div>
+</nav>
+
+<div class="hero">
+    <div class="badge"><i class="fas fa-user-graduate"></i> Проект по кибербезопасности</div>
+    <h1><i class="fas fa-laptop-code"></i> Кибербезопасность <br>в современном мире</h1>
+    <p>Подростки проводят в сети более 5 часов в день. При этом большинство из нас не знает элементарных правил безопасности. В результате растет число взломов, случаев кибербуллинга и финансовых потерь.</p>
+    <button onclick="alert('Будь внимателен в сети! Расскажи друзьям о безопасности.')"><i class="fas fa-download"></i> Защити себя →</button>
+</div>
+
+<div class="container">
+    <section id="actual">
+        <h2 class="section-title">📌 Актуальность & личная позиция</h2>
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Цифровая реальность</h3>
+                <p>Подростки проводят в интернете <strong>более 5 часов в день</strong>. Большинство не знает элементарных правил безопасности → рост взломов, кибербуллинг, финансовые потери.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-user-astronaut"></i></div>
+                <h3>Почему это важно для меня?</h3>
+                <p><strong>«Я, как и мои одноклассники, ежедневно сталкиваюсь с подозрительными ссылками и незнакомцами в сети. Хочу разобраться, как защитить себя и своих друзей.»</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <section style="margin-top: 2rem;">
+        <div class="card" style="background: linear-gradient(145deg, #e7f0f5, white);">
+            <h3><i class="fas fa-skull-crosswalk"></i> Киберугроза — это</h3>
+            <p style="font-size: 1.1rem; margin-top: 0.8rem;">потенциальная угроза, направленная на <strong>нарушение конфиденциальности, целостности и доступности</strong> информационных систем, сетей и данных. Цель — нарушить работу систем, украсть данные или повредить информационные системы.</p>
+        </div>
+    </section>
+
+    <section id="threats">
+        <h2 class="section-title">⚠️ Основные виды киберугроз для подростков</h2>
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-bug"></i></div>
+                <h3>Вирусы и вредоносные программы</h3>
+                <p>Вирусы могут повредить устройства и украсть личную информацию. Подростки часто загружают заражённые файлы или переходят по вредоносным ссылкам.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-fish"></i></div>
+                <h3>Фишинг — обман в интернете</h3>
+                <p>Мошенники создают ложные сайты и письма, чтобы получить пароли или финансовые данные. Невнимательность → значительные потери.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-user-secret"></i></div>
+                <h3>Взлом аккаунтов</h3>
+                <p>Использование одинаковых паролей облегчает злоумышленникам доступ к личным профилям, что приводит к потере контроля над страницами.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-comment-slash"></i></div>
+                <h3>Кибербуллинг</h3>
+                <p>Оскорбления, угрозы и публикация личной информации без согласия наносят психологический вред и подрывают чувство безопасности.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="stats">
+        <h2 class="section-title">📊 Методика и поведение подростков</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3><i class="fas fa-code-branch"></i> Разработка сайта</h3>
+                <p>Был разработан план сайта с чёткими разделами и логической последовательностью материалов. Это систематизировало знания и сделало информацию доступной для подростков.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-key"></i> Поведение подростков в сети</h3>
+                <div class="stat-box">
+                    <div class="stat-number">❌ 78%</div>
+                    <p>не меняют пароли регулярно</p>
+                </div>
+                <p style="margin-top: 1rem;">Это значительно повышает риск взлома аккаунтов и ставит под угрозу личную информацию.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="advice">
+        <h2 class="section-title">🛡️ Выводы и рекомендации</h2>
+        <div class="card">
+            <p><strong>Результаты показывают необходимость усиления информирования</strong> о важности уникальных и сложных паролей. Подросткам следует повышать осторожность при использовании интернета.</p>
+            <div class="grid-2" style="margin-top: 1.8rem;">
+                <div>
+                    <ul class="tip-list">
+                        <li><i class="fas fa-check-circle"></i> Используйте <strong>уникальные и сложные пароли</strong> для каждого аккаунта.</li>
+                        <li><i class="fas fa-check-circle"></i> Регулярно обновляйте их и не делитесь ими с посторонними.</li>
+                        <li><i class="fas fa-check-circle"></i> Соблюдайте конфиденциальность: ограничивайте доступ к личной информации.</li>
+                        <li><i class="fas fa-check-circle"></i> Скептически относитесь к незнакомым ссылкам и сообщениям.</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="stat-box" style="background: #d9eaf5;">
+                        <i class="fas fa-shield-haltered" style="font-size: 2rem;"></i>
+                        <p style="margin-top: 10px;"><strong>Кибербезопасность — это не просто набор правил, а необходимость в современном мире.</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="conclusion">
+        <h2 class="section-title">🎯 Итоги проекта</h2>
+        <div class="grid-2">
+            <div class="card">
+                <i class="fas fa-chart-simple" style="font-size: 2rem; color:#1e7e6c;"></i>
+                <h3 style="margin-top: 0.5rem;">Анализ и выводы</h3>
+                <p>Многие подростки не знают базовых правил безопасности в интернете. Это подтверждает необходимость создания сайта с практическими рекомендациями по защите паролей, личных данных и распознаванию угроз.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-globe" style="font-size: 2rem; color:#1e7e6c;"></i>
+                <h3 style="margin-top: 0.5rem;">Результат</h3>
+                <p>Реализация предложенных мер позволит значительно снизить риски киберпреступлений среди подростков и сделать цифровое пространство более безопасным.</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer class="footer">
+    <i class="fas fa-shield-heart"></i> Безопасность начинается с тебя! <br>
+    Проект по кибербезопасности · Будь внимателен в сети
+</footer>
+
+</body>
+</html>
